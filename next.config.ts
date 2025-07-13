@@ -8,7 +8,8 @@ const nextConfig: NextConfig = {
         hostname: "**.googleusercontent.com",
       }
     ]
-  }
+  },
+  allowedDevOrigins: ['ge-authkit-dev.ngrok.app']
 };
 
 export default nextConfig;

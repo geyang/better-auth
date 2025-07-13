@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  id            String    @id @default(uuid()) @map("_id")
   email         String    @unique
   name          String?
   emailVerified Boolean
@@ -22,24 +22,24 @@ model User {
 }
 
 model Session {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String   @id @default(uuid()) @map("_id")
   expiresAt DateTime
   token     String   @unique
   createdAt DateTime
   updatedAt DateTime
   ipAddress String?
   userAgent String?
-  userId    String   @db.ObjectId
+  userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, name: "UserSessions")
 
   @@map("session")
 }
 
 model Account {
-  id                    String    @id @default(auto()) @map("_id") @db.ObjectId
+  id                    String    @id @default(uuid()) @map("_id")
   accountId             String
   providerId            String
-  userId                String    @db.ObjectId
+  userId                String
   user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade, name: "UserAccounts")
   accessToken           String?
   refreshToken          String?
@@ -55,7 +55,7 @@ model Account {
 }
 
 model Verification {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  id         String    @id @default(uuid()) @map("_id")
   identifier String
   value      String
   expiresAt  DateTime
