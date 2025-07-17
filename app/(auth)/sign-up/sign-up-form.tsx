@@ -11,11 +11,8 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { GitHubSignInButton, GitHubSignUpButton } from '@/components/ui/github-button';
-import {
-  GoogleSignInButton,
-  GoogleSignUpButton,
-} from '@/components/ui/google-button';
+import { GitHubButton } from '@/components/ui/github-button';
+import { GoogleButton } from '@/components/ui/google-button';
 import { Separator } from '@/components/ui/separator';
 import { authClient } from '@/lib/auth-client';
 import { formSchema } from '@/lib/auth-schema';
@@ -60,69 +57,69 @@ export default function SignUpForm() {
   }
 
   return (
-      <Card className='grid gap-6 p-6'>
-        <div className='grid gap-2'>
-          <GitHubSignUpButton className='w-full' />
-          <GoogleSignUpButton className='w-full' />
-        </div>
+    <Card className='grid gap-6 p-6'>
+      <div className='grid gap-2'>
+        <GitHubButton className='w-full'>Sign Up via GitHub</GitHubButton>
+        <GoogleButton className='w-full'>Sign Up via GitHub</GoogleButton>
+      </div>
 
-        <div className='relative'>
-          <div className='absolute inset-0 flex items-center'>
-            <Separator className='w-full' />
-          </div>
-          <div className='relative flex justify-center text-xs uppercase'>
-            <span className='bg-background px-2 text-muted-foreground'>
-              Or continue with email
-            </span>
-          </div>
+      <div className='relative'>
+        <div className='absolute inset-0 flex items-center'>
+          <Separator className='w-full' />
         </div>
+        <div className='relative flex justify-center text-xs uppercase'>
+          <span className='bg-background px-2 text-muted-foreground'>
+            Or continue with email
+          </span>
+        </div>
+      </div>
 
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className='grid gap-2'>
-            <FormField
-              control={form.control}
-              name='name'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder='John Doe' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='email'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder='m@example.com' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='password'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <Input type='password' placeholder='********' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type='submit' className='w-full mt-2'>
-              Sign up with email
-            </Button>
-          </form>
-        </Form>
-      </Card>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='grid gap-2'>
+          <FormField
+            control={form.control}
+            name='name'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input placeholder='John Doe' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='email'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder='m@example.com' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='password'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Password</FormLabel>
+                <FormControl>
+                  <Input type='password' placeholder='********' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type='submit' className='w-full mt-2'>
+            Sign up with email
+          </Button>
+        </form>
+      </Form>
+    </Card>
   );
 }

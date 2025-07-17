@@ -11,15 +11,3 @@ export const signInWithGitHub = async () => {
     provider: 'github',
   });
 };
-
-export const signUpWithGoogle = async () => {
-  const data = await authClient.signUp.social({
-    provider: 'google',
-  });
-};
-
-export const signUpWithGitHub = async () => {
-  const data = await authClient.signUp.social({
-    provider: 'github',
-  });
-};

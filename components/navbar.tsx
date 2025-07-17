@@ -25,7 +25,7 @@ export default async function Navbar() {
                      </Link>
                      <SignOutForm>
                         <Button variant={"destructive"}>
-                           SignOut
+                           Sign Out
                         </Button>
                      </SignOutForm>
                   </>
