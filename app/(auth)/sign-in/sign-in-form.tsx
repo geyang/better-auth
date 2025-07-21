@@ -17,8 +17,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { signInFormSchema } from '@/lib/auth-schema';
 import { toast } from 'sonner';
 import type { z } from 'zod';
-import { GitHubButton } from '@/components/ui/github-button';
-import { GoogleButton } from '@/components/ui/google-button';
+import { GitHubButton } from '../github-button';
+import { GoogleButton } from '../google-button';
 
 type FormData = z.infer<typeof signInFormSchema>;
 

@@ -9,7 +9,10 @@ const nextConfig: NextConfig = {
       }
     ]
   },
-  allowedDevOrigins: ['ge-authkit-dev.ngrok.app']
+  allowedDevOrigins: [
+    'ge-authkit-dev.ngrok.app',
+    'ge-authkit-api-dev.ngrok.app',
+  ]
 };
 
 export default nextConfig;

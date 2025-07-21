@@ -11,8 +11,8 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { GitHubButton } from '@/components/ui/github-button';
-import { GoogleButton } from '@/components/ui/google-button';
+import { GitHubButton } from '@/app/(auth)/github-button';
+import { GoogleButton } from '@/app/(auth)/google-button';
 import { Separator } from '@/components/ui/separator';
 import { authClient } from '@/lib/auth-client';
 import { formSchema } from '@/lib/auth-schema';
